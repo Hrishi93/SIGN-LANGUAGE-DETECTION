@@ -5,6 +5,7 @@ from pydantic import BaseModel
 from pathlib import Path
 import numpy as np
 import joblib
+import os
 
 # ---------------- CONFIG ---------------- #
 
@@ -73,3 +74,5 @@ def predict(landmarks: LandmarkData):
 
     except Exception as e:
         return {"error": str(e)}
+
+port = int(os.environ.get("PORT", 8501))
